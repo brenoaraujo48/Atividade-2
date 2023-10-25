@@ -1,0 +1,65 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.content--add-item{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+#input-nova-tarefa,
+#btn-nova-tarefa{
+    border: none;
+    font-size: 16px;
+    outline: none;
+    padding: 16px;
+}
+
+#input-nova-tarefa{
+    width: 320px;
+    border-radius: 16px;
+}
+
+#btn-nova-tarefa{
+    background-color: rgb(90, 69, 69);
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#btn-nova-tarefa:hover{
+    background-color: rgb(122, 96, 96);
+    transition: .4s;
+}
+
+#lista--de-tarefas{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+
+}
+
+#lista--de-tarefas li{
+    list-style-type: none;
+    font-size: 22.4px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+}

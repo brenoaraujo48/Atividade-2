@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" lang="pt-BR">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Lista de Tarefas</h1>
+    <div class="contet">
+        <div class="contet--add-item">
+            <input type="text" id="input-nova-tarefa" placeholder="Insira uma nova tarefa">
+            <button onclick="novaTarefa()" id="btn-nova-tarefa" title="Clique aqui para adicionar uma tarefa">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+            </button>
+        </div>
+
+        <div class="content--body">
+            <ol id="lista--de-tarefas">
+            </ol>
+        </div>
+    </div>
+</body>
+
+<script>
+    const localStoragekey = 'lista-de-tarefas'
+
+    function novaTarefa()
+    {
+        let input = document.getElementById('input-nova-tarefa')
+        
+        if(!input.value)
+        {
+            alert("Insira uma tarefa")
+        }
+        // else if()
+        else
+        {
+            let values = JSON.parse(localStorage.getItem('localStoragekey') || "[]")
+            values.push({
+                nome: input.value
+            })
+            localStorage.setItem(localStoragekey,JSON.stringify(values))
+            showValues()
+        }
+    }
+
+    function showValues()
+    {
+        let values = JSON.parse(localStorage.getItem('localStoragekey') || "[]")
+        let list = document.getElementById('lista--de-tarefas')
+        list.innerHTML = ''
+        for(let i = 0; i < values.length; i++)
+        {
+            list.innerHTML = `<li>${values[i]['name']}</li>`
+        }
+    }
+</script>
+</html>

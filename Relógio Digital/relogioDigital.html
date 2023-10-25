@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" lang="pt-BR">
+    <title>Relógio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="relogio">
+        <div>
+            <span id="horas">00</span>
+            <span class="tempo">Horas</span>
+        </div>
+       
+        <div>
+            <span id="minutos">00</span>
+            <span class="tempo">Minutos</span>
+        </div>
+
+        <div>
+            <span id="segundos">00</span>
+            <span class="tempo">Segundos</span>
+        </div>
+    </div>
+</body>
+
+<script>
+    const horas = document.getElementById('horas')
+    const minutos = document.getElementById('minutos')
+    const segundos = document.getElementById('segundos')
+
+    const relogio = setInterval(function time(){
+        let dateToday = new Date()
+        let hr = dateToday.getHours()
+        let min = dateToday.getMinutes()
+        let s = dateToday.getSeconds()
+
+        if (hr <10) hr = '0' + hr 
+        if (min <10) min = '0' + min
+        if (s <10) s = '0' + s 
+
+        horas.textContent = hr
+        minutos.textContent = min
+        segundos.textContent = s
+    })
+</script>
+</html>
